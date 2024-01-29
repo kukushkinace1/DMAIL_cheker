@@ -17,10 +17,8 @@ total = 0
 
 for wallet in wallets:
 
-    amount = DMAIL_contract.functions.claimableTokens(wallet).call()/10**18
+    amount = DMAIL_contract.functions.claimableTokens(web3.to_checksum_address(wallet)).call()/10**18
     total += amount
     print(f'{wallet} : {amount}')
 
 print(f"Total: {total}")
-
-
